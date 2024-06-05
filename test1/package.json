@@ -1,0 +1,14 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "author": "Azamat Giztdinov",
+  "private": "true",
+  "scripts": {
+    "start": "concurrently \"npm run start:service1\" \"npm run start:service2\"",
+    "start:service1": "cd service1 && npm install && npm start",
+    "start:service2": "cd service2 && npm install && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
