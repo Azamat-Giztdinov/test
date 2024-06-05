@@ -28,7 +28,6 @@ app.put('/users/:id', async (req, res) => {
     const user = await User.findByPk(req.params.id);
     if (user) {
       await user.update(req.body);
-      console.log("api-key:", process.env.API_KEY);
       await axios.post(`${process.env.HISTORY_SERVICE_URL}/history`, 
         { action: 'update', userId: user.id },
         { headers: {'api-key': process.env.API_KEY}}
